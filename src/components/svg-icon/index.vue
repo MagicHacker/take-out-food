@@ -1,14 +1,17 @@
 <template>
-  <svg class="icon">
-    <use xlink:href="" />
+  <svg class="svg-icon" aria-hidden="true">
+    <use :xlink:href="iconName" />
   </svg>
 </template>
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({});
+import { Component, Vue, Prop } from "vue-property-decorator";
+@Component
+export default class SvgIcon extends Vue {
+  @Prop() iconName!: string;
+}
 </script>
 <style lang="less" scoped>
-.icon {
+.svg-icon {
   width: 1.5em;
   height: 1.5em;
   vertical-align: -0.15em;
