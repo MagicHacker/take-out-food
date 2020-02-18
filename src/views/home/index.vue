@@ -1,7 +1,9 @@
 <template>
   <div class="home-page-wrap">
     <header-top headerTitle="顶部">
-      <template v-slot:left>left</template>
+      <template v-slot:left>
+        <svg-icon iconName="#icon-search"></svg-icon>
+      </template>
       <template v-slot:right>right</template>
     </header-top>
   </div>
