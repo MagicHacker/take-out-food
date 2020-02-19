@@ -27,6 +27,7 @@ export default class HeaderTop extends Vue {
   justify-content: space-between;
   padding: 0px 10px;
   box-sizing: border-box;
+  color: #fff;
   .header-top-title {
     font-size: 20px;
     white-space: nowrap;
