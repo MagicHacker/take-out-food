@@ -19,9 +19,16 @@
         direction="horizontal"
         :paginationVisible="true"
         :paginationClickable="true"
-        :swiperData="goodsList"
+        :swiperData="navList"
       >
-        <div v-for="(item, index) in goodsList" :key="index">{{ item.id }}</div>
+        <div class="goods-nav-wrap" v-for="(item, index) in navList" :key="index">
+          <div class="goods-item-wrap" v-for="val in item.goodsList" :key="val.id">
+            <img :src="val.url" alt />
+            <div>
+              <span>{{ val.name }}</span>
+            </div>
+          </div>
+        </div>
       </nut-swiper>
     </div>
   </div>
@@ -37,12 +44,86 @@ import { getUUid } from "../../utils/index";
 })
 export default class Home extends Vue {
   // 商品列表
-  goodsList = [
+  navList = [
     {
-      id: getUUid()
+      id: 0,
+      goodsList: [
+        {
+          id: getUUid(),
+          name: "早餐",
+          url: "assets/images/breakfast.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "川湘菜",
+          url: "../../assets/images/cuisine.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "麻辣烫",
+          url: "../../assets/images/spicy-hot-pot.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "蛋糕",
+          url: "../../assets/images/cake.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "下午茶",
+          url: "../../assets/images/Cha-PM.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "果蔬生鲜",
+          url: "../../assets/images/fresh-vegetables.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "汉堡",
+          url: "../../assets/images/hamburger.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "火锅",
+          url: "../../assets/images/hot-pot.jpg"
+        }
+      ]
     },
     {
-      id: getUUid()
+      id: 1,
+      goodsList: [
+        {
+          id: getUUid(),
+          name: "医药",
+          url: "../../assets/images/medicine.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "新店",
+          url: "../../assets/images/new-store.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "意大利面",
+          url: "../../assets/images/Pasta.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "海鲜",
+          url: "../../assets/images/sea-food.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "糖品",
+          url: "../../assets/images/sugar.jpg"
+        },
+        {
+          id: getUUid(),
+          name: "超市",
+          url: "../../assets/images/super-market.jpg"
+        }
+      ]
     }
   ];
   signIn(): void {
@@ -66,6 +147,20 @@ export default class Home extends Vue {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .goods-nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .goods-item-wrap {
+      width: 40px;
+      height: 40px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 </style>
