@@ -7,7 +7,11 @@
         </div>
       </template>
       <template v-slot:right>
-        <div @click="signIn">登录|注册</div>
+        <div class="sign-in-out">
+          <div @click="signIn">登录</div>
+          <div>|</div>
+          <div @click="signUp">注册</div>
+        </div>
       </template>
     </header-top>
     <div class="home-goods-area">
@@ -42,7 +46,10 @@ export default class Home extends Vue {
     }
   ];
   signIn(): void {
-    alert(1);
+    alert("登录");
+  }
+  signUp(): void {
+    alert("注册");
   }
 }
 </script>
@@ -53,6 +60,12 @@ export default class Home extends Vue {
     width: 40px;
     display: flex;
     align-items: center;
+  }
+  .sign-in-out {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 </style>
