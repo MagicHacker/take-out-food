@@ -21,7 +21,7 @@
         :paginationClickable="true"
         :swiperData="navList"
       >
-        <div class="goods-nav-wrap" v-for="(item, index) in navList" :key="index">
+        <div class="goods-nav-wrap nut-swiper-slide" v-for="(item, index) in navList" :key="index">
           <div class="goods-item-wrap" v-for="val in item.goodsList" :key="val.id">
             <img :src="val.url" alt />
             <div>
@@ -51,42 +51,42 @@ export default class Home extends Vue {
         {
           id: getUUid(),
           name: "早餐",
-          url: "assets/images/breakfast.jpg"
+          url: require("../../assets/images/breakfast.jpg")
         },
         {
           id: getUUid(),
           name: "川湘菜",
-          url: "../../assets/images/cuisine.jpg"
+          url: require("../../assets/images/cuisine.jpg")
         },
         {
           id: getUUid(),
           name: "麻辣烫",
-          url: "../../assets/images/spicy-hot-pot.jpg"
+          url: require("../../assets/images/spicy-hot-pot.jpg")
         },
         {
           id: getUUid(),
           name: "蛋糕",
-          url: "../../assets/images/cake.jpg"
+          url: require("../../assets/images/cake.jpg")
         },
         {
           id: getUUid(),
           name: "下午茶",
-          url: "../../assets/images/Cha-PM.jpg"
+          url: require("../../assets/images/Cha-PM.jpg")
         },
         {
           id: getUUid(),
           name: "果蔬生鲜",
-          url: "../../assets/images/fresh-vegetables.jpg"
+          url: require("../../assets/images/fresh-vegetables.jpg")
         },
         {
           id: getUUid(),
           name: "汉堡",
-          url: "../../assets/images/hamburger.jpg"
+          url: require("../../assets/images/hamburger.jpg")
         },
         {
           id: getUUid(),
           name: "火锅",
-          url: "../../assets/images/hot-pot.jpg"
+          url: require("../../assets/images/hot-pot.jpg")
         }
       ]
     },
@@ -96,32 +96,32 @@ export default class Home extends Vue {
         {
           id: getUUid(),
           name: "医药",
-          url: "../../assets/images/medicine.jpg"
+          url: require("../../assets/images/medicine.jpg")
         },
         {
           id: getUUid(),
           name: "新店",
-          url: "../../assets/images/new-store.jpg"
+          url: require("../../assets/images/new-store.jpg")
         },
         {
           id: getUUid(),
           name: "意大利面",
-          url: "../../assets/images/Pasta.jpg"
+          url: require("../../assets/images/Pasta.jpg")
         },
         {
           id: getUUid(),
           name: "海鲜",
-          url: "../../assets/images/sea-food.jpg"
+          url: require("../../assets/images/sea-food.jpg")
         },
         {
           id: getUUid(),
           name: "糖品",
-          url: "../../assets/images/sugar.jpg"
+          url: require("../../assets/images/sugar.jpg")
         },
         {
           id: getUUid(),
           name: "超市",
-          url: "../../assets/images/super-market.jpg"
+          url: require("../../assets/images/super-market.jpg")
         }
       ]
     }
@@ -148,17 +148,19 @@ export default class Home extends Vue {
     align-items: center;
     justify-content: space-between;
   }
-  .goods-nav-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    .goods-item-wrap {
-      width: 40px;
-      height: 40px;
-      img {
-        width: 100%;
-        height: 100%;
+  .home-goods-area {
+    margin-top: 10px;
+    .goods-nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .goods-item-wrap {
+        width: 80px;
+        height: 60px;
+        img {
+          width: 50px;
+          height: 50px;
+        }
       }
     }
   }
