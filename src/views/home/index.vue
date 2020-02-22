@@ -31,15 +31,33 @@
         </div>
       </nut-swiper>
     </div>
+    <div class="business-list-area">
+      <div class="business-list-text">
+        <svg-icon iconName="#icon-near"></svg-icon>
+        <span>附近商家</span>
+      </div>
+      <div v-for="item in businessList" :key="item.id">
+        <business-list
+          :imgUrl="item.url"
+          :shopName="item.shopName"
+          :shopScore="item.score"
+          :shopOrder="item.orderCount"
+          :price="item.price"
+          :deliveryPrice="item.deliveryPrice"
+        ></business-list>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import HeaderTop from "../../components/header-top/index.vue";
+import BusinessList from "../business-list/index.vue";
 import { getUUid } from "../../utils/index";
 @Component({
   components: {
-    HeaderTop
+    HeaderTop,
+    BusinessList
   }
 })
 export default class Home extends Vue {
@@ -126,6 +144,45 @@ export default class Home extends Vue {
       ]
     }
   ];
+  // 商家列表
+  businessList = [
+    {
+      id: getUUid(),
+      shopName: "嘉和一品",
+      score: 4.7,
+      orderCount: 106,
+      deliveryPrice: 5,
+      price: 20,
+      url: require("../../assets/images/fish.jpg")
+    },
+    {
+      id: getUUid(),
+      shopName: "帕瑞斯蛋糕房",
+      score: 4.2,
+      orderCount: 700,
+      deliveryPrice: 5,
+      price: 20,
+      url: require("../../assets/images/bread.jpg")
+    },
+    {
+      id: getUUid(),
+      shopName: "海底捞",
+      score: 4.9,
+      orderCount: 1000,
+      deliveryPrice: 15,
+      price: 40,
+      url: require("../../assets/images/meat.jpg")
+    },
+    {
+      id: getUUid(),
+      shopName: "黄焖鸡",
+      score: 4.0,
+      orderCount: 100,
+      deliveryPrice: 3,
+      price: 20,
+      url: require("../../assets/images/rice.jpg")
+    }
+  ];
   signIn(): void {
     alert("登录");
   }
@@ -149,7 +206,7 @@ export default class Home extends Vue {
     justify-content: space-between;
   }
   .home-goods-area {
-    margin-top: 10px;
+    background-color: #fff;
     .goods-nav-wrap {
       display: flex;
       justify-content: space-between;
@@ -162,6 +219,16 @@ export default class Home extends Vue {
           height: 50px;
         }
       }
+    }
+  }
+  .business-list-area {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 0px 5px;
+    box-sizing: border-box;
+    .business-list-text {
+      text-align: left;
     }
   }
 }
