@@ -46,8 +46,8 @@ export default class BusinessList extends Vue {
   align-items: center;
   .business-list-image {
     img {
-      width: 80px;
-      height: 80px;
+      width: 75px;
+      height: 75px;
     }
   }
 }
