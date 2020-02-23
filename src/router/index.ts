@@ -4,6 +4,7 @@ import home from "../views/home/index.vue";
 import order from "../views/order/index.vue";
 import profile from "../views/profile/index.vue";
 import search from "../views/search/index.vue";
+import Login from "../views/login/index.vue";
 Vue.use(VueRouter);
 interface Routers {
   path: string;
@@ -26,6 +27,10 @@ const routes: Array<Routers> = [
   {
     path: "/search",
     component: search
+  },
+  {
+    path: "/login",
+    component: Login
   },
   {
     path: "/",

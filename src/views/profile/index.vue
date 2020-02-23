@@ -1,7 +1,7 @@
 <template>
   <div class="profile-page-wrap">
     <header-top headerTitle="我的"></header-top>
-    <div class="profile-page-second">
+    <div class="profile-page-second" @click="signInOrUp">
       <div class="profile-page-avatar">
         <img src="../../assets/images/Jay.jpg" alt />
       </div>
@@ -70,7 +70,11 @@ import HeaderTop from "../../components/header-top/index.vue";
     HeaderTop
   }
 })
-export default class Profile extends Vue {}
+export default class Profile extends Vue {
+  signInOrUp(): void {
+    this.$router.push({ path: "/login" });
+  }
+}
 </script>
 <style lang="less" scoped>
 .profile-page-wrap {
